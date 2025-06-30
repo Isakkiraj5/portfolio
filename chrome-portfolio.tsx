@@ -57,7 +57,7 @@ export default function ChromePortfolio() {
     { title: "LinkedIn", url: "https://www.linkedin.com/in/isakki-raj-6b4526148/" },
   ])
 
-  useEffect(() => {
+  useEffect(() => {   
     const updateTime = () => {
       setCurrentTime(new Date().toLocaleTimeString())
     }
