@@ -187,7 +187,7 @@ export default function ChromePortfolio() {
   return (
     <div className="min-h-screen bg-gray-50 relative">
       {/* Desktop Chrome Browser Header */}
-      <div className="hidden md:block bg-white border-b border-gray-300">
+      <div className="hidden md:block bg-white border-b border-gray-300 sticky top-0 z-[999]">
         {/* Tab Bar */}
         <div className="flex items-end bg-gray-100 px-2 pt-2">
           <div className="bg-white rounded-t-lg px-4 py-2 border-t border-l border-r border-gray-300 flex items-center space-x-2 min-w-[200px] relative">
@@ -537,10 +537,12 @@ export default function ChromePortfolio() {
                         <Download className="w-4 h-4 mr-2" />
                         Download Resume
                       </Button>
-                      <Button variant="outline">
-                        <Github className="w-4 h-4 mr-2" />
-                        View GitHub
-                      </Button>
+                    <a href="https://github.com/Isakkiraj5" target="_blank" rel="noopener noreferrer">
+                   <Button variant="outline">
+                   <Github className="w-4 h-4 mr-2" />
+                     View GitHub
+                   </Button>
+                   </a>
                     </div>
 
                     <Card>
@@ -815,7 +817,7 @@ export default function ChromePortfolio() {
                             <Mail className="w-5 h-5 text-blue-600" />
                             <div>
                               <p className="font-medium">Email</p>
-                              <p className="text-sm text-gray-600">isak@example.com</p>
+                              <p className="text-sm text-gray-600">rajisakki7@gmail.com</p>
                             </div>
                           </div>
                           <Badge variant="outline" className="text-xs">
@@ -827,7 +829,7 @@ export default function ChromePortfolio() {
                             <Phone className="w-5 h-5 text-green-600" />
                             <div>
                               <p className="font-medium">Phone</p>
-                              <p className="text-sm text-gray-600">+1 (555) 123-4567</p>
+                              <p className="text-sm text-gray-600">+91 8098117300</p>
                             </div>
                           </div>
                           <Badge variant="secondary" className="text-xs">
