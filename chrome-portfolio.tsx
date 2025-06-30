@@ -118,10 +118,10 @@ export default function ChromePortfolio() {
   const toggleBookmark = () => {
     setIsBookmarked(!isBookmarked)
     if (!isBookmarked) {
-      const newBookmark = { title: "Isakkiraj - Portfolio", url: "https://isakkiraj.dev" }
+      const newBookmark = { title: "Isakkiraj - Portfolio", url: "https://isakki.netlify.app/" }
       setBookmarks([...bookmarks, newBookmark])
     } else {
-      setBookmarks(bookmarks.filter((b) => b.url !== "https://isakkiraj.dev"))
+      setBookmarks(bookmarks.filter((b) => b.url !== "https://isakki.netlify.app/"))
     }
   }
 
@@ -298,7 +298,7 @@ export default function ChromePortfolio() {
                       <div className="px-4 py-1 text-xs text-gray-500">Bookmarks</div>
                       {bookmarks.map((bookmark, index) => (
                         <button
-                          key={index}
+                          key={index}  onClick={() => window.open(bookmark.url, "_blank")}
                           className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center space-x-3"
                         >
                           <Globe className="w-4 h-4" />
