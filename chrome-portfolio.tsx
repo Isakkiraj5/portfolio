@@ -53,14 +53,15 @@ export default function ChromePortfolio() {
   const [history, setHistory] = useState<string[]>(["https://isakkiraj.dev"])
   const [historyIndex, setHistoryIndex] = useState(0)
   const [bookmarks, setBookmarks] = useState<Array<{ title: string; url: string }>>([
-    { title: "GitHub", url: "https://github.com" },
-    { title: "LinkedIn", url: "https://linkedin.com" },
+    { title: "GitHub", url: "https://github.com/Isakkiraj5" },
+    { title: "LinkedIn", url: "https://www.linkedin.com/in/isakki-raj-6b4526148/" },
   ])
 
   useEffect(() => {
     const updateTime = () => {
       setCurrentTime(new Date().toLocaleTimeString())
     }
+     
     updateTime()
     const interval = setInterval(updateTime, 1000)
     return () => clearInterval(interval)
