@@ -3,10 +3,15 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
+
 import { Button } from "@/components/ui/button"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
 import { Badge } from "@/components/ui/badge"
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
 import {
   Globe,
   Github,
@@ -57,11 +62,11 @@ export default function ChromePortfolio() {
     { title: "LinkedIn", url: "https://www.linkedin.com/in/isakki-raj-6b4526148/" },
   ])
 
-  useEffect(() => {   
+  useEffect(() => {
     const updateTime = () => {
       setCurrentTime(new Date().toLocaleTimeString())
     }
-     
+
     updateTime()
     const interval = setInterval(updateTime, 1000)
     return () => clearInterval(interval)
@@ -208,7 +213,6 @@ export default function ChromePortfolio() {
             </svg>
           </button>
         </div>
-
         {/* Navigation Bar */}
         <div className="flex items-center px-3 py-2 space-x-3">
           {/* Navigation Buttons */}
@@ -241,7 +245,6 @@ export default function ChromePortfolio() {
               <Home className="w-4 h-4 text-gray-600" />
             </button>
           </div>
-
           {/* Address Bar */}
           <div className="flex-1 max-w-2xl">
             <div className="bg-white border border-gray-300 rounded-full px-4 py-2 flex items-center space-x-3 hover:shadow-sm transition-shadow">
@@ -258,7 +261,6 @@ export default function ChromePortfolio() {
               </button>
             </div>
           </div>
-
           {/* Right Side Controls */}
           <div className="flex items-center space-x-2">
             <button
@@ -274,7 +276,7 @@ export default function ChromePortfolio() {
                 onClick={() => setShowMenu(!showMenu)}
                 title="Chrome menu"
               >
-                <MoreVertical className="w-4 h-4 text-gray-600" />  
+                <MoreVertical className="w-4 h-4 text-gray-600" />
               </button>
               {showMenu && (
                 <div className="absolute right-0 top-full mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
@@ -298,7 +300,8 @@ export default function ChromePortfolio() {
                       <div className="px-4 py-1 text-xs text-gray-500">Bookmarks</div>
                       {bookmarks.map((bookmark, index) => (
                         <button
-                          key={index}  onClick={() => window.open(bookmark.url, "_blank")}
+                          key={index}
+                          onClick={() => window.open(bookmark.url, "_blank")}
                           className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center space-x-3"
                         >
                           <Globe className="w-4 h-4" />
@@ -315,7 +318,6 @@ export default function ChromePortfolio() {
             </div>
           </div>
         </div>
-
         {/* Bookmarks Bar */}
         <div className="bg-gray-50 border-t border-gray-200 px-4 py-1">
           <div className="flex items-center space-x-4">
@@ -323,6 +325,7 @@ export default function ChromePortfolio() {
               {bookmarks.slice(0, 5).map((bookmark, index) => (
                 <button
                   key={index}
+                  onClick={() => window.open(bookmark.url, "_blank")}
                   className="flex items-center space-x-1 px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 rounded"
                   title={bookmark.url}
                 >
@@ -337,7 +340,6 @@ export default function ChromePortfolio() {
           </div>
         </div>
       </div>
-
       {/* Mobile Chrome Browser Header */}
       <div className="md:hidden bg-white border-b border-gray-300">
         {/* Mobile Address Bar */}
@@ -351,7 +353,6 @@ export default function ChromePortfolio() {
           >
             <ArrowLeft className="w-5 h-5 text-gray-600" />
           </button>
-
           {/* Address Bar */}
           <div className="flex-1">
             <div className="bg-gray-100 border border-gray-300 rounded-full px-4 py-2 flex items-center space-x-3">
@@ -367,13 +368,11 @@ export default function ChromePortfolio() {
               </button>
             </div>
           </div>
-
           {/* Mobile Menu */}
           <div className="relative">
             <button className="p-2 hover:bg-gray-100 rounded-full" onClick={() => setShowMenu(!showMenu)}>
               <MoreVertical className="w-5 h-5 text-gray-600" />
             </button>
-
             {showMenu && (
               <div className="absolute right-0 top-full mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                 <div className="py-2">
@@ -398,20 +397,28 @@ export default function ChromePortfolio() {
                       <span>History</span>
                     </button>
                     <button className="w-full px-4 py-3 text-left text-sm hover:bg-gray-50 flex items-center space-x-3">
-                      <Bookmark className="w-4 h-4" />
-                      <span>Bookmarks</span>
-                    </button>
-                    <button className="w-full px-4 py-3 text-left text-sm hover:bg-gray-50 flex items-center space-x-3">
                       <Settings className="w-4 h-4" />
                       <span>Settings</span>
                     </button>
+                    <div className="border-t border-gray-100 mt-2 pt-2">
+                      <div className="px-4 py-1 text-xs text-gray-500">Bookmarks</div>
+                      {bookmarks.map((bookmark, index) => (
+                        <button
+                          key={index}
+                          onClick={() => window.open(bookmark.url, "_blank")}
+                          className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 flex items-center space-x-3"
+                        >
+                          <Globe className="w-4 h-4" />
+                          <span className="truncate">{bookmark.title}</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             )}
           </div>
         </div>
-
         {/* Mobile Tab Navigation */}
         <div className="bg-gray-50 border-t border-gray-200 px-3 py-2">
           <button
@@ -422,13 +429,11 @@ export default function ChromePortfolio() {
             <span>Sections</span>
           </button>
         </div>
-
         {/* Mobile Navigation Menu */}
         {showMobileMenu && (
           <>
             {/* Backdrop */}
             <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={closeMobileMenu} />
-
             {/* Menu */}
             <div className="fixed inset-x-0 top-0 bg-white border-b border-gray-200 shadow-lg z-50 animate-in slide-in-from-top duration-200">
               <div className="px-4 py-3">
@@ -438,7 +443,6 @@ export default function ChromePortfolio() {
                     <X className="w-4 h-4 text-gray-600" />
                   </button>
                 </div>
-
                 <div className="space-y-2">
                   {[
                     { id: "about", label: "About Me", icon: User },
@@ -473,14 +477,12 @@ export default function ChromePortfolio() {
           </>
         )}
       </div>
-
       {/* Loading Bar */}
       {isLoading && (
         <div className="h-1 bg-gray-200">
           <div className="h-full bg-blue-500 animate-pulse" style={{ width: "60%" }}></div>
         </div>
       )}
-
       {/* Desktop Navigation */}
       <div className="hidden md:block bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
@@ -515,7 +517,6 @@ export default function ChromePortfolio() {
                 Contact
               </TabsTrigger>
             </TabsList>
-
             <div className="max-w-7xl mx-auto px-6 py-8">
               <TabsContent value="about" className="mt-0">
                 <div className="grid md:grid-cols-3 gap-8">
@@ -538,14 +539,13 @@ export default function ChromePortfolio() {
                         <Download className="w-4 h-4 mr-2" />
                         Download Resume
                       </Button>
-                    <a href="https://github.com/Isakkiraj5" target="_blank" rel="noopener noreferrer">
-                   <Button variant="outline">
-                   <Github className="w-4 h-4 mr-2" />
-                     View GitHub
-                   </Button>
-                   </a>
+                      <a href="https://github.com/Isakkiraj5" target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline">
+                          <Github className="w-4 h-4 mr-2" />
+                          View GitHub
+                        </Button>
+                      </a>
                     </div>
-
                     <Card>
                       <CardHeader>
                         <CardTitle className="flex items-center">
@@ -586,7 +586,6 @@ export default function ChromePortfolio() {
                       </CardContent>
                     </Card>
                   </div>
-
                   <div>
                     <Card>
                       <CardHeader>
@@ -620,7 +619,6 @@ export default function ChromePortfolio() {
                         </div>
                       </CardContent>
                     </Card>
-
                     <Card className="mt-6">
                       <CardHeader>
                         <CardTitle>Tech Stack</CardTitle>
@@ -641,13 +639,11 @@ export default function ChromePortfolio() {
                   </div>
                 </div>
               </TabsContent>
-
               <TabsContent value="skills" className="mt-0">
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">Technical Skills</h2>
                   <p className="text-gray-600">My expertise spans across modern frontend technologies and platforms.</p>
                 </div>
-
                 <div className="grid md:grid-cols-2 gap-6">
                   {skills.map((skill, index) => {
                     const IconComponent = skill.icon
@@ -680,7 +676,6 @@ export default function ChromePortfolio() {
                     )
                   })}
                 </div>
-
                 <div className="mt-12">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Specializations</h3>
                   <div className="grid md:grid-cols-3 gap-6">
@@ -700,7 +695,6 @@ export default function ChromePortfolio() {
                         </p>
                       </CardContent>
                     </Card>
-
                     <Card>
                       <CardHeader>
                         <CardTitle className="flex items-center justify-between">
@@ -719,7 +713,6 @@ export default function ChromePortfolio() {
                         </p>
                       </CardContent>
                     </Card>
-
                     <Card>
                       <CardHeader>
                         <CardTitle className="flex items-center justify-between">
@@ -741,13 +734,11 @@ export default function ChromePortfolio() {
                   </div>
                 </div>
               </TabsContent>
-
               <TabsContent value="projects" className="mt-0">
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Projects</h2>
                   <p className="text-gray-600">A showcase of my recent work and development projects.</p>
                 </div>
-
                 <div className="grid md:grid-cols-2 gap-8">
                   {projects.map((project, index) => (
                     <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
@@ -790,7 +781,6 @@ export default function ChromePortfolio() {
                     </Card>
                   ))}
                 </div>
-
                 <div className="mt-12 text-center">
                   <Button variant="outline" size="lg">
                     <Github className="w-4 h-4 mr-2" />
@@ -798,14 +788,12 @@ export default function ChromePortfolio() {
                   </Button>
                 </div>
               </TabsContent>
-
               <TabsContent value="contact" className="mt-0">
                 <div className="max-w-4xl mx-auto">
                   <div className="mb-8 text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
                     <p className="text-gray-600">Ready to work together? Let's discuss your next project.</p>
                   </div>
-
                   <div className="grid md:grid-cols-2 gap-8">
                     <Card>
                       <CardHeader>
@@ -813,55 +801,72 @@ export default function ChromePortfolio() {
                         <CardDescription>Feel free to reach out through any of these channels</CardDescription>
                       </CardHeader>
                       <CardContent className="space-y-4">
-                        <div className="flex items-center justify-between">
+                        <a href="mailto:rajisakki7@gmail.com" className="flex items-center justify-between group">
                           <div className="flex items-center space-x-3">
-                            <Mail className="w-5 h-5 text-blue-600" />
+                            <Mail className="w-5 h-5 text-blue-600 group-hover:text-blue-700 transition-colors" />
                             <div>
                               <p className="font-medium">Email</p>
-                              <p className="text-sm text-gray-600">rajisakki7@gmail.com</p>
+                              <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+                                rajisakki7@gmail.com
+                              </p>
                             </div>
                           </div>
                           <Badge variant="outline" className="text-xs">
                             Primary
                           </Badge>
-                        </div>
-                        <div className="flex items-center justify-between">
+                        </a>
+                        <a href="tel:+918098117300" className="flex items-center justify-between group">
                           <div className="flex items-center space-x-3">
-                            <Phone className="w-5 h-5 text-green-600" />
+                            <Phone className="w-5 h-5 text-green-600 group-hover:text-green-700 transition-colors" />
                             <div>
                               <p className="font-medium">Phone</p>
-                              <p className="text-sm text-gray-600">+91 8098117300</p>
+                              <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+                                +91 8098117300
+                              </p>
                             </div>
                           </div>
                           <Badge variant="secondary" className="text-xs">
                             Available
                           </Badge>
-                        </div>
-                        <div className="flex items-center justify-between">
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/isakki-raj-6b4526148/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between group"
+                        >
                           <div className="flex items-center space-x-3">
-                            <Linkedin className="w-5 h-5 text-blue-700" />
+                            <Linkedin className="w-5 h-5 text-blue-700 group-hover:text-blue-800 transition-colors" />
                             <div>
                               <p className="font-medium">LinkedIn</p>
-                              <p className="text-sm text-gray-600">linkedin.com/in/isakkiraj</p>
+                              <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+                                linkedin.com/in/isakki-raj-6b4526148/
+                              </p>
                             </div>
                           </div>
                           <Badge variant="outline" className="text-xs">
                             Professional
                           </Badge>
-                        </div>
-                        <div className="flex items-center justify-between">
+                        </a>
+                        <a
+                          href="https://github.com/Isakkiraj5"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between group"
+                        >
                           <div className="flex items-center space-x-3">
-                            <Github className="w-5 h-5 text-gray-800" />
+                            <Github className="w-5 h-5 text-gray-800 group-hover:text-black transition-colors" />
                             <div>
                               <p className="font-medium">GitHub</p>
-                              <p className="text-sm text-gray-600">github.com/isakkiraj</p>
+                              <p className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+                                github.com/Isakkiraj5
+                              </p>
                             </div>
                           </div>
                           <Badge className="text-xs">Active</Badge>
-                        </div>
+                        </a>
                       </CardContent>
                     </Card>
-
                     <Card>
                       <CardHeader>
                         <CardTitle>Send a Message</CardTitle>
@@ -901,7 +906,6 @@ export default function ChromePortfolio() {
                       </CardContent>
                     </Card>
                   </div>
-
                   <div className="mt-12 text-center">
                     <div className="inline-flex items-center space-x-4 bg-blue-50 px-6 py-3 rounded-lg">
                       <Star className="w-5 h-5 text-blue-600" />
@@ -915,7 +919,6 @@ export default function ChromePortfolio() {
           </Tabs>
         </div>
       </div>
-
       {/* Mobile Content */}
       <div className="md:hidden">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -958,7 +961,6 @@ export default function ChromePortfolio() {
                     </Button>
                   </div>
                 </div>
-
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center text-lg">
@@ -998,7 +1000,6 @@ export default function ChromePortfolio() {
                     </div>
                   </CardContent>
                 </Card>
-
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Quick Info</CardTitle>
@@ -1033,7 +1034,6 @@ export default function ChromePortfolio() {
                 </Card>
               </div>
             </TabsContent>
-
             <TabsContent value="skills" className="mt-0">
               <div className="space-y-6">
                 <div className="text-center">
@@ -1042,7 +1042,6 @@ export default function ChromePortfolio() {
                     My expertise spans across modern frontend technologies and platforms.
                   </p>
                 </div>
-
                 <div className="space-y-4">
                   {skills.map((skill, index) => {
                     const IconComponent = skill.icon
@@ -1075,7 +1074,6 @@ export default function ChromePortfolio() {
                     )
                   })}
                 </div>
-
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold text-gray-900 text-center">Specializations</h3>
                   <div className="space-y-4">
@@ -1095,7 +1093,6 @@ export default function ChromePortfolio() {
                         </p>
                       </CardContent>
                     </Card>
-
                     <Card>
                       <CardHeader className="pb-3">
                         <CardTitle className="flex items-center justify-between text-base">
@@ -1114,7 +1111,6 @@ export default function ChromePortfolio() {
                         </p>
                       </CardContent>
                     </Card>
-
                     <Card>
                       <CardHeader className="pb-3">
                         <CardTitle className="flex items-center justify-between text-base">
@@ -1137,14 +1133,12 @@ export default function ChromePortfolio() {
                 </div>
               </div>
             </TabsContent>
-
             <TabsContent value="projects" className="mt-0">
               <div className="space-y-6">
                 <div className="text-center">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Featured Projects</h2>
                   <p className="text-gray-600 text-sm">A showcase of my recent work and development projects.</p>
                 </div>
-
                 <div className="space-y-6">
                   {projects.map((project, index) => (
                     <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
@@ -1187,7 +1181,6 @@ export default function ChromePortfolio() {
                     </Card>
                   ))}
                 </div>
-
                 <div className="text-center">
                   <Button variant="outline" size="lg" className="w-full bg-transparent">
                     <Github className="w-4 h-4 mr-2" />
@@ -1196,14 +1189,12 @@ export default function ChromePortfolio() {
                 </div>
               </div>
             </TabsContent>
-
             <TabsContent value="contact" className="mt-0">
               <div className="space-y-6">
                 <div className="text-center">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Get In Touch</h2>
                   <p className="text-gray-600 text-sm">Ready to work together? Let's discuss your next project.</p>
                 </div>
-
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Contact Information</CardTitle>
@@ -1212,55 +1203,72 @@ export default function ChromePortfolio() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex items-center justify-between">
+                    <a href="mailto:rajisakki7@gmail.com" className="flex items-center justify-between group">
                       <div className="flex items-center space-x-3">
-                        <Mail className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                        <Mail className="w-4 h-4 text-blue-600 flex-shrink-0 group-hover:text-blue-700 transition-colors" />
                         <div>
                           <p className="font-medium text-sm">Email</p>
-                          <p className="text-xs text-gray-600">isak@example.com</p>
+                          <p className="text-xs text-gray-600 group-hover:text-gray-800 transition-colors">
+                            rajisakki7@gmail.com
+                          </p>
                         </div>
                       </div>
                       <Badge variant="outline" className="text-xs">
                         Primary
                       </Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
+                    </a>
+                    <a href="tel:+918098117300" className="flex items-center justify-between group">
                       <div className="flex items-center space-x-3">
-                        <Phone className="w-4 h-4 text-green-600 flex-shrink-0" />
+                        <Phone className="w-4 h-4 text-green-600 flex-shrink-0 group-hover:text-green-700 transition-colors" />
                         <div>
                           <p className="font-medium text-sm">Phone</p>
-                          <p className="text-xs text-gray-600">+1 (555) 123-4567</p>
+                          <p className="text-xs text-gray-600 group-hover:text-gray-800 transition-colors">
+                            +91 8098117300
+                          </p>
                         </div>
                       </div>
                       <Badge variant="secondary" className="text-xs">
                         Available
                       </Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/isakki-raj-6b4526148/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between group"
+                    >
                       <div className="flex items-center space-x-3">
-                        <Linkedin className="w-4 h-4 text-blue-700 flex-shrink-0" />
+                        <Linkedin className="w-4 h-4 text-blue-700 flex-shrink-0 group-hover:text-blue-800 transition-colors" />
                         <div>
                           <p className="font-medium text-sm">LinkedIn</p>
-                          <p className="text-xs text-gray-600">linkedin.com/in/isakkiraj</p>
+                          <p className="text-xs text-gray-600 group-hover:text-gray-800 transition-colors">
+                            linkedin.com/in/isakki-raj-6b4526148/
+                          </p>
                         </div>
                       </div>
                       <Badge variant="outline" className="text-xs">
                         Professional
                       </Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
+                    </a>
+                    <a
+                      href="https://github.com/Isakkiraj5"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between group"
+                    >
                       <div className="flex items-center space-x-3">
-                        <Github className="w-4 h-4 text-gray-800 flex-shrink-0" />
+                        <Github className="w-4 h-4 text-gray-800 flex-shrink-0 group-hover:text-black transition-colors" />
                         <div>
                           <p className="font-medium text-sm">GitHub</p>
-                          <p className="text-xs text-gray-600">github.com/isakkiraj</p>
+                          <p className="text-xs text-gray-600 group-hover:text-gray-800 transition-colors">
+                            github.com/Isakkiraj5
+                          </p>
                         </div>
                       </div>
                       <Badge className="text-xs">Active</Badge>
-                    </div>
+                    </a>
                   </CardContent>
                 </Card>
-
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Send a Message</CardTitle>
@@ -1299,7 +1307,6 @@ export default function ChromePortfolio() {
                     </form>
                   </CardContent>
                 </Card>
-
                 <div className="text-center">
                   <div className="inline-flex items-center space-x-4 bg-blue-50 px-4 py-3 rounded-lg">
                     <Star className="w-4 h-4 text-blue-600" />
@@ -1312,7 +1319,6 @@ export default function ChromePortfolio() {
           </div>
         </Tabs>
       </div>
-
       {/* Click outside to close menus */}
       {showMenu && <div className="fixed inset-0 z-30" onClick={() => setShowMenu(false)}></div>}
     </div>
