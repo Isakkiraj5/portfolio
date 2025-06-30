@@ -274,7 +274,7 @@ export default function ChromePortfolio() {
                 onClick={() => setShowMenu(!showMenu)}
                 title="Chrome menu"
               >
-                <MoreVertical className="w-4 h-4 text-gray-600" />
+                <MoreVertical className="w-4 h-4 text-gray-600" />  
               </button>
               {showMenu && (
                 <div className="absolute right-0 top-full mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
